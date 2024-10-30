@@ -1,0 +1,88 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier",
+    "plugin:@next/next/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "ignorePatterns": ["sentry_sample_error.js", "_error.js"],
+  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
+  "rules": {
+    "semi": 0,
+    "arrow-parens": 0,
+    "object-curly-newline": 0,
+    "no-console": 0,
+    "no-alert": 0,
+    "no-unused-vars": 0, // gives false positives, checked by TS already
+    "no-undef": 0, // gives false positives, checked by TS already
+    "no-use-before-define": 0,
+    "no-underscore-dangle": 0, // used by entities in libcore
+    "lines-between-class-members": 0,
+    "arrow-body-style": 0,
+    "max-classes-per-file": 0,
+    "no-param-reassign": 0, // needed for redux-toolkit mutable state
+    "no-return-assign": 0, // needed for redux-toolkit mutable state
+    "no-shadow": 0, // false positives with TS enums
+    "no-nested-ternary": 0,
+    "no-restricted-syntax": 0,
+
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0, // checked by TS already
+
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "~/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ],
+
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/require-default-props": 0,
+    "react/prop-types": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-key": "error",
+
+    "@typescript-eslint/no-explicit-any": "off",
+
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+
+    "@next/next/no-img-element": "off",
+
+    "react/no-unused-prop-types": "off",
+
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
+  }
+}
